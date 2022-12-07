@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header2 }}
+
+<body>
+
+    {{> navbardepartment }}
+
+    <section class="container main-hero-container">
+        <div class="student-info" style="margin-bottom: 50px; margin-bottom: 30px;">
+            <h3>Department Head Info</h3>
+            <p>Computer Science & Engineering</p>
+            <p>Head of the Department,</p>
+            <p>Mahady Hasan, PhD</p>
+            <p>School of Engineering, Technology and Science</p>
+        </div>
+
+        <div id="editor"></div>
+        <div class="container">
+            <h2>Course List</h2>
+
+            <table class="table table-striped" id="mytable">
+                <thead>
+                    <tr>
+                        <th>Course ID</th>
+                        <th>Course Name</th>
+                        <th>Instructor</th>
+                        <th>Department</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each results}}
+                    <tr>
+                        <td>{{ CourseID }}</td>
+                        <td>{{ CourseName }}</td>
+                        <td>{{ FacultyName }}</td>
+                        <td>{{ DepartmentID }}</td>
+                        <td>
+                            <div id="dthis_{{ CourseID }}" style="display:none;">
+                                <h1 style="text-align: center;">IUB</h1>
+                                <h3 style="text-align: center;">Course Outline</h3>
+                                <br>
+                                <h5>Instructor’s details:</h5>
+                                <div>
+                                    <p>
+                                        {{ FacultyName }}<br>
+                                        Assistant Professor<br>
+                                        Tutorial Hours: Saturday at 11:00 p.m. to 1:30 p.m. (or by appointment)<br>
+                                        Cell: 017000003, <br>
+                                        {{ FacultyEmail }}<br>
+                                    </p>
+                                </div>
+                                <br>
+                                <br>
+                                <h5>Course Content</h5>
+                                <p>{{CourseContent}}</p>
+
+                                <h5>Course Objective</h5>
+                                <p>{{CourseObjective}}</p>
+
+                                <h5>Mark Distribution</h5>
+                                <p>{{MarkDistribution}}</p>
+
+                                <h5>Reference Book</h5>
+                                <p>{{ReferenceBook}}</p>
+
+                                <h5>Course Policy</h5>
+                                <p>{{CoursePolicy}}</p>
+                            </div>
+                            <button type="button" onclick="downloadpdf({{ CourseID }}, '{{ CourseName }}')"
+                                class="btn btn-outline-dark btn-sm" style=" cursor: pointer;">Download</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+
+    <script src="/assets/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/assets/js/jspdf/dist/jspdf.umd.min.js"></script>
+    <script src="/assets/js/dompurify/dist/purify.min.js"></script>
+    <script src="/assets/js/html2canvas/dist/html2canvas.min.js"></script>
+
+
+
+
+</body>
+
+</html>

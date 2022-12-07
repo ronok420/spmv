@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{> header   }}
+  <body>
+     {{> navbar   }}
+    <div class="container">
+      <div class="text">Registration</div>
+      {{#if msg}}
+      <p style="text-align:center;" class="{{msg_type}}">{{msg}}</p>
+      {{/if}}
+      <form action="/register" method="post">
+        <div class="data">
+          <label for="name">Full Name</label>
+          <input type="text" name="username" id="name" />
+        </div>
+        <div class="data">
+          <label for="email">Email</label>
+          <input type="email" name="useremail" id="email" />
+        </div>
+        <div class="data">
+          <label for="user_type">User Type</label>
+          <div style="margin-top:10px;border: 1px solid silver; padding:10px;">
+            <input type="radio" name="user_type" value="1" style="cursor:pointer;"> Admin
+            <input type="radio" name="user_type" value="2" style="margin-left: 20px; cursor:pointer;" /> Teacher
+            <input type="radio" name="user_type" value="3" style="margin-left: 20px; cursor:pointer;" checked /> Student
+          </div>
+        </div>
+        <div class="data">
+          <label for="password">Password</label>
+          <input type="password" name="userpassword" id="password" />
+        </div>
+        <div class="data">
+          <label for="confirm_password">Confirm Password</label>
+          <input type="password" name="confirm_userpassword" id="password" />
+        </div>
+
+        <div class="btn">
+          <button type="submit">Register</button>
+        </div>
+        <div class="signup-link">
+          Already a member ? <a href="/">Login now</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
